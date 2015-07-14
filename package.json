@@ -1,0 +1,39 @@
+{
+  "name": "metascript-csp",
+  "version": "0.1.0",
+  "description": "go style concurrency for metascript",
+  "main": "lib/csp.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metascript/metascript-csp.git"
+  },
+  "keywords": [
+    "csp",
+    "go",
+    "async",
+    "channels",
+    "concurrency",
+    "metascript"
+  ],
+  "author": "Rodrigo B. de Oliveira <rbo@acm.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/metascript/metascript-csp/issues"
+  },
+  "homepage": "https://github.com/metascript/metascript-csp#readme",
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "gulp": "^3.9.0",
+    "gulp-mjs-conventions": "0.0.6",
+    "hash-require": "0.0.4",
+    "masakari": "^0.4.0",
+    "mjs-check": "0.0.4"
+  },
+  "dependencies": {
+    "knuth-shuffle": "^1.0.1",
+    "mori": "^0.3.2"
+  }
+}
