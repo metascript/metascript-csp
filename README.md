@@ -16,7 +16,7 @@ npm install --save metascript-csp
 
 Checkout the tests for [examples](test/csp-test.mjs).
 
-Consider how much nicer life is [out of callback hell](test/rpc-test.mjs).
+Consider how much nicer life is [out of callback hell](test/rpc-test.mjs#L23).
 
 [travis-ci-img]: https://travis-ci.org/metascript/metascript-csp.svg?branch=master
 [travis-ci-link]: https://travis-ci.org/metascript/metascript-csp
