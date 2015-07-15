@@ -53,6 +53,25 @@ describe
               done ()
 
 describe
+  '#alts'
+  #->
+    it
+      'will let only one operation succeed'
+      done ->
+        const
+          c1 = chan ()
+          c2 = chan ()
+        const g =
+          #go
+            var r = yield alts ([c1, [c2, ::c2]])
+            r
+        #go
+          yield put (c1, ::c1)
+          (expect yield alts ([c2], {default: ::default})).to.eql {value: ::default}
+          (expect yield g).to.have.property (::value).eql ::c1
+          done ()
+
+describe
   '#chan n'
   #->
     [0, 1, 2, 3].for-each n ->
@@ -178,3 +197,19 @@ describe
         #go
           (expect yield csp.take c).to.eql null
           done ()
+
+describe
+  '#onto'
+  #->
+    [[], [1], [1, 2]].for-each array ->
+      it
+        'puts all elements of given collection into channel'
+        done ->
+          const c = chan ()
+          onto (c, array, ::keep-open)
+          #go
+            var i = 0
+            while (i < array.length)
+              (expect yield c).to.eql (array[i])
+              i += 1
+            done ()
